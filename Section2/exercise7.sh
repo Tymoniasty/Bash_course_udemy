@@ -1,13 +1,10 @@
 #!/bin/bash
-# Write a shell script that prompts the user for a name of a file or 
-# directory and reports if it is a regular file, a directory, 
-# or other type of file. 
-# Also perform an ls command against the file or directory with the 
-# long listing option.
+#Modify the previous script so that it accepts the file or directory name as an argument instead of
+#prompting the user to enter it.
 
 #Ask user for input.
 #-p <prompt>	Outputs the prompt string before reading user input.
-read -p "Enter a file/folder name: " FILE 
+FILE=$1
 echo "File name: " $FILE
 
 if [ -f "$FILE" ]; then #test if file exists -f (check if it is a file (as instead of a folder))
@@ -25,5 +22,5 @@ fi
 location=$(pwd)
 echo "Available files in the current location: '"$location"'"
 echo ""
-ls -l
+#ls -l
 return
