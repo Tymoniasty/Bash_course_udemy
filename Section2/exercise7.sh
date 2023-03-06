@@ -15,14 +15,20 @@ elif [ $# -gt 1 ]; then
 else
     if [ -f "$FILE" ]; then #test if file exists -f (check if it is a file (as instead of a folder))
     #the above could also be used with -e (which wouldn't checki if it is a file (it could also be a folder))
-    #if checking if a directory exists a -d could be used
         echo "This is a file!"
         ls -l $FILE
-    elif [ -d "$FILE" ]; then #check if folder
-        echo "This is a Folder!"
-        if [ -w "$FILE" ]; then
+        if [ -w "$FILE" ]; then #'-w' write permissions
             echo "You have write permissions!"
-            ls -l $FILE
+        else
+            echo "You do NOT have write permissions!"
+        fi
+    elif [ -d "$FILE" ]; then #if checking if a directory exists with a -d parameter
+        echo "This is a Folder!"
+        ls -l $FILE
+        if [ -w "$FILE" ]; then #'-w' write permissions
+            echo "You have write permissions!"
+        else
+            echo "You do NOT have write permissions!"
         fi
     else #neither folder or file (it might not exist)
         echo "$FILE does NOT exists."
