@@ -17,13 +17,15 @@ else
     #the above could also be used with -e (which wouldn't checki if it is a file (it could also be a folder))
     #if checking if a directory exists a -d could be used
         echo "This is a file!"
-    elif [ -d "$FILE" ]; then
+        ls -l $FILE
+    elif [ -d "$FILE" ]; then #check if folder
         echo "This is a Folder!"
         if [ -w "$FILE" ]; then
             echo "You have write permissions!"
+            ls -l $FILE
         fi
-    else
-        echo "Test File does NOT exists."
+    else #neither folder or file (it might not exist)
+        echo "$FILE does NOT exists."
         location=$(pwd)
         echo "Available files in the current location '"$location"'":""
         echo ""
