@@ -6,7 +6,7 @@
 
 cat /etc/shadow
 
-if [ $? -eq 0 ]; then
+if [ $? -eq "0" ]; then
     echo "Command succeded"
     exit 0
 else
