@@ -10,9 +10,9 @@
 # Here is the contents of "sleep­walking­server". Be sure to put this file in 
 # /tmp and run chmod 755 /tmp/sleep­walking­server
 
-case $1 in  
+case "$1" in  
     start|START)
-        "./sleepwalkingserver &"
+        ./sleepwalkingserver &
         ;;
     stop|STOP)
         kill $(cat /tmp/sleepwalkingserver.pid)
